@@ -26,7 +26,7 @@ public class Team {
 
     @Column(name = "photo_url")
     private String photoUrl;
-
+  
     public Team(TeamRequestDTO teamRequestDTO){
         this.id = teamRequestDTO.getId();
         this.name = teamRequestDTO.getName();
