@@ -1,6 +1,5 @@
 package pedrocavichioni.goalconnect.dto.team;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
