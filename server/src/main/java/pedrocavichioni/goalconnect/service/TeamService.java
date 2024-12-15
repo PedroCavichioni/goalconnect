@@ -48,4 +48,8 @@ public class TeamService {
         Team team = new Team(teamRequestDTO);
         return teamRepository.save(team);
     }
+
+    public void deleteTeam(final Long id){
+        teamRepository.deleteById(id);
+    }
 }
