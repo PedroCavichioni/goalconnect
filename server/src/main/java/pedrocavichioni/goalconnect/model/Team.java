@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pedrocavichioni.goalconnect.dto.team.TeamRequestDTO;
+import pedrocavichioni.goalconnect.dto.team.TeamResponseDTO;
 
 @Table(name = "team")
 @Entity(name = "team")
@@ -24,4 +26,11 @@ public class Team {
 
     @Column(name = "photo_url")
     private String photoUrl;
+  
+    public Team(TeamRequestDTO teamRequestDTO){
+        this.id = teamRequestDTO.getId();
+        this.name = teamRequestDTO.getName();
+        this.state = teamRequestDTO.getState();
+        this.photoUrl = teamRequestDTO.getPhotoUrl();
+    }
 }

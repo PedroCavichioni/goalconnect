@@ -3,11 +3,12 @@ package pedrocavichioni.goalconnect.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pedrocavichioni.goalconnect.dto.team.TeamRequestDTO;
 import pedrocavichioni.goalconnect.dto.team.TeamResponseDTO;
 import pedrocavichioni.goalconnect.model.Team;
 import pedrocavichioni.goalconnect.service.TeamService;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/team")
@@ -17,8 +18,8 @@ public class TeamController {
     private TeamService teamService;
 
     @GetMapping("/all")
-    public String getAllTeams(){
-        return "";
+    public List<Team> getAllTeams(){
+        return teamService.getAllTeams();
     }
 
     @GetMapping("{id}")
@@ -27,8 +28,8 @@ public class TeamController {
     }
 
     @PostMapping
-    public String addTeam(@RequestBody Team team){
-        return "";
+    public ResponseEntity<Team> addTeam(@RequestBody TeamRequestDTO teamRequestDTO){
+        return ResponseEntity.ok(teamService.registerTeam(teamRequestDTO));
     }
 
     @PutMapping
