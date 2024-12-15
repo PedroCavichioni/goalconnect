@@ -18,6 +18,10 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     public TeamResponseDTO getTeamById(final Long id){
+
+        if(id <= 0){
+            return new TeamResponseDTO();
+        }
         Optional<Team> response = teamRepository.findById(id);
 
         return response.map(TeamResponseDTO::new).orElseGet(TeamResponseDTO::new);
@@ -28,6 +32,19 @@ public class TeamService {
     }
 
     public Team registerTeam(final TeamRequestDTO teamRequestDTO){
+
+        if(teamRequestDTO.getName().isEmpty() || teamRequestDTO.getState().isEmpty() || teamRequestDTO.getPhotoUrl().isEmpty()){
+            return null;
+        }
+
+        Team team = new Team(teamRequestDTO);
+        return teamRepository.save(team);
+    }
+
+    public Team updateTeam(final TeamRequestDTO teamRequestDTO){
+        if(teamRequestDTO.getName().isEmpty() || teamRequestDTO.getState().isEmpty() || teamRequestDTO.getPhotoUrl().isEmpty()){
+            return null;
+        }
         Team team = new Team(teamRequestDTO);
         return teamRepository.save(team);
     }
