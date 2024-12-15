@@ -33,8 +33,8 @@ public class TeamController {
     }
 
     @PutMapping
-    public String updateTeam(@RequestBody Team team){
-        return "";
+    public ResponseEntity<Team> updateTeam(@RequestBody TeamRequestDTO teamRequestDTO){
+        return ResponseEntity.ok(teamService.updateTeam(teamRequestDTO));
     }
 
     @DeleteMapping("{id}")
