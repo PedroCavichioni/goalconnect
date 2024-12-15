@@ -48,5 +48,12 @@ public class TeamService {
         Team team = new Team(teamRequestDTO);
         return teamRepository.save(team);
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
+    public void deleteTeam(final Long id){
+        teamRepository.deleteById(id);
+    }
 >>>>>>> Stashed changes
 }
