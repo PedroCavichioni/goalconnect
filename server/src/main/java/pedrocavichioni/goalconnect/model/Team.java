@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pedrocavichioni.goalconnect.dto.team.TeamRequestDTO;
-import pedrocavichioni.goalconnect.dto.team.TeamResponseDTO;
 
 @Table(name = "team")
 @Entity(name = "team")
