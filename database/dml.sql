@@ -12,7 +12,7 @@ INSERT INTO team (name, state, photo_url) VALUES
 ('Internacional', 'RS', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Scinternacional1909.png/180px-Scinternacional1909.png');
 
 /*INSERTING DATA TO MATCH TABLE (FORMAT 'DD-MM-YYYY')*/
-INSERT INTO match (date, team_one_id, score_team_one, team_two_id, score_team_two, team_suported_id) VALUES 
+INSERT INTO match (date, team_one_id, score_team_one, team_two_id, score_team_two, team_supported_id) VALUES 
 ('01-10-2024', 1, 2, 2, 1, 1),
 ('02-10-2024', 3, 1, 4, 1, 3),
 ('03-10-2024', 5, 3, 6, 2, 5),

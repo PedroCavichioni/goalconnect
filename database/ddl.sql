@@ -20,7 +20,7 @@ CREATE TABLE match(
     score_team_one INTEGER NOT NULL,
     team_two_id INTEGER NOT NULL REFERENCES team(id) ON UPDATE CASCADE ON DELETE NO ACTION,
     score_team_two INTEGER NOT NULL,
-    team_suported_id INTEGER NOT NULL REFERENCES team(id) ON UPDATE CASCADE ON DELETE NO ACTION,
+    team_supported_id INTEGER NOT NULL REFERENCES team(id) ON UPDATE CASCADE ON DELETE NO ACTION,
 
     unique(date, team_one_id, team_two_id)
 )
