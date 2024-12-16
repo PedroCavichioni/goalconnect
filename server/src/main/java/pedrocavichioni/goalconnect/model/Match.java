@@ -6,6 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+<<<<<<< HEAD
+import pedrocavichioni.goalconnect.dto.match.MatchRequestDTO;
+=======
+>>>>>>> 36e06a53a2d25fb92540f4cf52b989a5489de9fb
 
 import java.util.Date;
 
@@ -44,4 +48,17 @@ public class Match {
         @JsonManagedReference
         @JoinColumn(name = "team_supported_id")
         private Team supportedTeam;
+<<<<<<< HEAD
+
+        public Match(MatchRequestDTO matchRequestDTO, Team teamOne,Team teamTwo,Team supportedTeam){
+                this.id = matchRequestDTO.getId();
+                this.date = matchRequestDTO.getDate();
+                this.scoreTeamOne = matchRequestDTO.getScoreTeamOne();
+                this.scoreTeamTwo = matchRequestDTO.getScoreTeamTwo();
+                this.teamOne = teamOne;
+                this.teamTwo = teamTwo;
+                this.supportedTeam = supportedTeam;
+        }
+=======
+>>>>>>> 36e06a53a2d25fb92540f4cf52b989a5489de9fb
     }
