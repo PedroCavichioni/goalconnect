@@ -2,6 +2,7 @@ package pedrocavichioni.goalconnect.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import pedrocavichioni.goalconnect.dto.team.TeamRequestDTO;
 import pedrocavichioni.goalconnect.dto.team.TeamResponseDTO;
 import pedrocavichioni.goalconnect.model.Team;
@@ -21,7 +22,7 @@ public class TeamService {
 
         return response.map(TeamResponseDTO::new).orElseGet(TeamResponseDTO::new);
     }
-
+  
     public List<Team> getAllTeams(){
         return teamRepository.findAll();
     }
