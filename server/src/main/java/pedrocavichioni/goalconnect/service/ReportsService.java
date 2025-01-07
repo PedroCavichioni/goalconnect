@@ -25,7 +25,7 @@ public class ReportsService {
     private Integer getMatchesQuantity(){
         return Math.toIntExact(matchRepository.count());
     }
-
+  
     private Integer getWinsQuantity(){
         List< Match > matches = matchRepository.findAll();
 
