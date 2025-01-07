@@ -21,4 +21,9 @@ public class ReportsResponseDTO {
     private Team teamMostWatched;
 
     private Integer daysWithoutWatching;
+
+    public ReportsResponseDTO(Integer matchesQuantity, Integer winsQuantity){
+        this.matchesQuantity = matchesQuantity;
+        this.winsQuantity = winsQuantity;
+    }
 }
