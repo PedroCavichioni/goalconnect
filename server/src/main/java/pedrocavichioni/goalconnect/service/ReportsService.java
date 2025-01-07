@@ -23,13 +23,13 @@ public class ReportsService {
         return Math.toIntExact(matchRepository.count());
     }
 
-    private Integer getWinsQuantity(){
-        List< Match > matches = matchRepository.findAll();
-        Integer winsQuantity = 0;
-
-        for(Match match : matches){
-            Team supportedTeam = match.getSupportedTeam();
-
-        }
-    }
+//    private Integer getWinsQuantity(){
+//        List< Match > matches = matchRepository.findAll();
+//        Integer winsQuantity = 0;
+//
+//        for(Match match : matches){
+//            Team supportedTeam = match.getSupportedTeam();
+//
+//        }
+//    }
 }

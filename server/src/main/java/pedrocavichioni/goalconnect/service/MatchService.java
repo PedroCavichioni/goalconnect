@@ -45,6 +45,15 @@ public class MatchService {
             return null;
         }
 
+        if(matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId())){
+            throw new IllegalArgumentException("Os times devem ser diferentes.");
+        }
+
+        if (!matchRequestDTO.getSupportedTeamId().equals(matchRequestDTO.getTeamOneId()) &&
+                !matchRequestDTO.getSupportedTeamId().equals(matchRequestDTO.getTeamTwoId())) {
+            throw new IllegalArgumentException("O time suportado deve ser um dos times participantes da partida.");
+        }
+
         Team teamOne = teamRepository.findById(matchRequestDTO.getTeamOneId()).orElseThrow(() -> new IllegalArgumentException("Time 1 não encontrado!"));
         Team teamTwo = teamRepository.findById(matchRequestDTO.getTeamTwoId()).orElseThrow(() -> new IllegalArgumentException("Time 2 não encontrado!"));
         Team supportedTeam = teamRepository.findById(matchRequestDTO.getSupportedTeamId()).orElseThrow(() -> new IllegalArgumentException("Time de torcida não encontrado!"));
@@ -60,6 +69,10 @@ public class MatchService {
                 || matchRequestDTO.getTeamOneId().toString().isEmpty()
                 || matchRequestDTO.getTeamTwoId().toString().isEmpty()
                 ||matchRequestDTO.getSupportedTeamId().toString().isEmpty()){
+            return null;
+        }
+
+        if(matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId())){
             return null;
         }
 
