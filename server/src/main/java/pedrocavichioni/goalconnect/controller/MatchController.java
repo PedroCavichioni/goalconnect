@@ -37,7 +37,7 @@ public class MatchController {
         return ResponseEntity.ok(matchService.updateMatch(matchRequestDTO));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMatch(@PathVariable("id") Long id){
         matchService.deleteMatch(id);
         return ResponseEntity.ok("Partida deletada com sucesso!");
