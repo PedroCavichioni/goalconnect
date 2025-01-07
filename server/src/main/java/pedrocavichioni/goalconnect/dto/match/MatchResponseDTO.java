@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pedrocavichioni.goalconnect.model.Match;
+import pedrocavichioni.goalconnect.model.Team;
 
 import java.util.Date;
 
@@ -22,11 +23,11 @@ public class MatchResponseDTO {
 
     private Integer scoreTeamTwo;
 
-    private Long teamOne;
+    private Team teamOne;
 
-    private Long teamTwo;
+    private Team teamTwo;
 
-    private Long supportedTeam;
+    private Team supportedTeam;
 
     public MatchResponseDTO(Match match){
         this(
@@ -34,9 +35,9 @@ public class MatchResponseDTO {
                 match.getDate(),
                 match.getScoreTeamTwo(),
                 match.getScoreTeamOne(),
-                match.getTeamOne().getId(),
-                match.getTeamTwo().getId(),
-                match.getSupportedTeam().getId()
+                match.getTeamOne(),
+                match.getTeamTwo(),
+                match.getSupportedTeam()
         );
     }
 }
