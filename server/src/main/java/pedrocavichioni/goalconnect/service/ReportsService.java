@@ -2,11 +2,12 @@ package pedrocavichioni.goalconnect.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pedrocavichioni.goalconnect.dto.ReportsResponseDTO;
+import pedrocavichioni.goalconnect.dto.reports.ReportsResponseDTO;
 import pedrocavichioni.goalconnect.model.Match;
 import pedrocavichioni.goalconnect.model.Team;
 import pedrocavichioni.goalconnect.repository.MatchRepository;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,7 +20,8 @@ public class ReportsService {
     public ReportsResponseDTO getAllReports(){
         Integer matchesQuantity = getMatchesQuantity();
         Integer winsQuantity = getWinsQuantity();
-        return new ReportsResponseDTO(matchesQuantity, winsQuantity);
+        Double winsPercentage = getWinPercentage();
+        return new ReportsResponseDTO(matchesQuantity, winsQuantity,winsPercentage);
     }
 
     private Integer getMatchesQuantity(){
@@ -50,5 +52,42 @@ public class ReportsService {
             }
         }
         return  winsQuantity;
+    }
+
+    private Double getWinPercentage() {
+        double winsPercentage = 0;
+        double wonPoints = 0;
+        double totalPoints = 0;
+
+        List<Match> matches = matchRepository.findAll();
+
+        Long teamWinnerId = 0L;
+
+        for (Match match : matches) {
+            Team supportedTeam = match.getSupportedTeam();
+
+            Integer scoreTeamOne = match.getScoreTeamOne();
+            Integer scoreTeamTwo = match.getScoreTeamTwo();
+
+            if (scoreTeamOne > scoreTeamTwo) {
+                teamWinnerId = match.getTeamOne().getId();
+            } else if (scoreTeamOne < scoreTeamTwo) {
+                teamWinnerId = match.getTeamTwo().getId();
+            } else {
+                wonPoints += 1;
+            }
+
+            if (Objects.equals(match.getSupportedTeam().getId(), teamWinnerId)) {
+                wonPoints += 1;
+            }
+            totalPoints += 3;
+        }
+
+        winsPercentage = (wonPoints / totalPoints) * 100;
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String formatted = decimalFormat.format(winsPercentage).replace(",", ".");
+
+        return Double.valueOf(formatted);
     }
 }
