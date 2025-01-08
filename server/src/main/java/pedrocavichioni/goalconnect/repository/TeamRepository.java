@@ -7,7 +7,6 @@ import pedrocavichioni.goalconnect.model.Team;
 
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
-
     @Query("SELECT t " +
             "FROM team t " +
             "WHERE t.id = (" +
