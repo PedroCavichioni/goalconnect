@@ -6,6 +6,7 @@ import pedrocavichioni.goalconnect.dto.reports.ReportsResponseDTO;
 import pedrocavichioni.goalconnect.model.Match;
 import pedrocavichioni.goalconnect.model.Team;
 import pedrocavichioni.goalconnect.repository.MatchRepository;
+import pedrocavichioni.goalconnect.repository.TeamRepository;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -17,11 +18,15 @@ public class ReportsService {
     @Autowired
     private MatchRepository matchRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     public ReportsResponseDTO getAllReports(){
         Integer matchesQuantity = getMatchesQuantity();
         Integer winsQuantity = getWinsQuantity();
         Double winsPercentage = getWinPercentage();
-        return new ReportsResponseDTO(matchesQuantity, winsQuantity,winsPercentage);
+        Team mostWatchedTeam = getMostWatchedTeam();
+        return new ReportsResponseDTO(matchesQuantity, winsQuantity,winsPercentage, mostWatchedTeam);
     }
 
     private Integer getMatchesQuantity(){
@@ -89,5 +94,9 @@ public class ReportsService {
         String formatted = decimalFormat.format(winsPercentage).replace(",", ".");
 
         return Double.valueOf(formatted);
+    }
+
+    private Team getMostWatchedTeam(){
+        return teamRepository.getMostWatchedTeam();
     }
 }
