@@ -21,11 +21,4 @@ public class ReportsResponseDTO {
     private Team mostWatchedTeam;
 
     private Integer daysWithoutWatching;
-
-    public ReportsResponseDTO(Integer matchesQuantity, Integer winsQuantity, Double winsPercentage, Team mostWatchedTeam){
-        this.matchesQuantity = matchesQuantity;
-        this.winsQuantity = winsQuantity;
-        this.winsPercentage = winsPercentage;
-        this.mostWatchedTeam = mostWatchedTeam;
-    }
 }
