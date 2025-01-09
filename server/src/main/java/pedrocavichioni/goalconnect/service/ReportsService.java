@@ -24,28 +24,18 @@ public class ReportsService {
     public ReportsResponseDTO getAllReports(){
         Integer matchesQuantity = getMatchesQuantity();
         Integer winsQuantity = getWinsQuantity();
-<<<<<<< HEAD
-        return new ReportsResponseDTO(matchesQuantity, winsQuantity);
-=======
         Double winsPercentage = getWinPercentage();
         Team mostWatchedTeam = getMostWatchedTeam();
         Integer daysWithoutWatching = getDaysWithoutWatching();
         return new ReportsResponseDTO(matchesQuantity, winsQuantity,winsPercentage, mostWatchedTeam, daysWithoutWatching);
->>>>>>> 1d0e9eadf93d70059826b4d724b73c221aba4114
     }
 
     private Integer getMatchesQuantity(){
         return Math.toIntExact(matchRepository.count());
     }
-  
-    private Integer getWinsQuantity(){
-        List< Match > matches = matchRepository.findAll();
 
-<<<<<<< HEAD
     private Integer getWinsQuantity(){
         List< Match > matches = matchRepository.findAll();
-=======
->>>>>>> 1d0e9eadf93d70059826b4d724b73c221aba4114
         int winsQuantity = 0;
 
         for(Match match : matches){
@@ -68,8 +58,6 @@ public class ReportsService {
         }
         return  winsQuantity;
     }
-<<<<<<< HEAD
-=======
 
     private Double getWinPercentage() {
         double winsPercentage = 0;
@@ -115,5 +103,4 @@ public class ReportsService {
     private Integer getDaysWithoutWatching(){
         return matchRepository.getDaysWithoutWatching();
     }
->>>>>>> 1d0e9eadf93d70059826b4d724b73c221aba4114
 }
