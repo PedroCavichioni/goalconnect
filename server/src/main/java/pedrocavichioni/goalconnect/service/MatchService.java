@@ -9,6 +9,7 @@ import pedrocavichioni.goalconnect.model.Team;
 import pedrocavichioni.goalconnect.repository.MatchRepository;
 import pedrocavichioni.goalconnect.repository.TeamRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,13 @@ public class MatchService {
 
     public Match registerMatch(final MatchRequestDTO matchRequestDTO){
 
+        Date formattedDate = matchRequestDTO.getDate();
+        formattedDate.setHours(0);
+        formattedDate.setMinutes(0);
+        formattedDate.setSeconds(0);
+
+        matchRequestDTO.setDate(formattedDate);
+
         if(matchRequestDTO.getScoreTeamOne().toString().isEmpty()
                 || matchRequestDTO.getScoreTeamTwo().toString().isEmpty()
                 || matchRequestDTO.getTeamOneId().toString().isEmpty()
@@ -63,6 +71,13 @@ public class MatchService {
     }
 
     public Match updateMatch(final MatchRequestDTO matchRequestDTO){
+
+        Date formattedDate = matchRequestDTO.getDate();
+        formattedDate.setHours(0);
+        formattedDate.setMinutes(0);
+        formattedDate.setSeconds(0);
+
+        matchRequestDTO.setDate(formattedDate);
 
         if(matchRequestDTO.getScoreTeamOne().toString().isEmpty()
                 || matchRequestDTO.getScoreTeamTwo().toString().isEmpty()
