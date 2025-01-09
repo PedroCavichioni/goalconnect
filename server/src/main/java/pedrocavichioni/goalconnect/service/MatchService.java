@@ -32,7 +32,7 @@ public class MatchService {
     }
 
     public List<Match> getAllMatches(){
-        return matchRepository.findAll();
+        return matchRepository.findAllOrderedByDate();
     }
 
     public Match registerMatch(final MatchRequestDTO matchRequestDTO){
