@@ -1,4 +1,4 @@
-package pedrocavichioni.goalconnect.dto;
+package pedrocavichioni.goalconnect.dto.reports;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,11 +14,11 @@ public class ReportsResponseDTO {
 
     private Integer matchesQuantity;
 
-    private  Integer winsQuantity;
+    private Integer winsQuantity;
 
     private Double winsPercentage;
 
-    private Team teamMostWatched;
+    private Team mostWatchedTeam;
 
     private Integer daysWithoutWatching;
 
