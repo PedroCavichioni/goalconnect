@@ -3,7 +3,7 @@
 
 ## Descrição
 
-GoalConnect é uma plataforma dedicada ao registro de partidas de futebol. Com um design moderno e intuitivo, permite que usuários registrem resultados, cronogramas e mantenham um histórico detalhado dos jogos de forma rápida e eficiente. Ideal para jogadores, treinadores e fãs do esporte.
+GoalConnect é uma plataforma dedicada ao registro de partidas de futebol. Permite que usuários registrem resultados, cronogramas e mantenham um histórico detalhado dos jogos de forma rápida e eficiente. Ideal para jogadores, treinadores e fãs do esporte.
 
 ## Funcionalidades
 
@@ -14,10 +14,8 @@ GoalConnect é uma plataforma dedicada ao registro de partidas de futebol. Com u
 
 ## Tecnologias Usadas
 
-- **Frontend:** React
 - **Backend:** Java (Spring Boot)
 - **Banco de Dados:** PostgreSQL
-- **Estilização:** CSS
 
 ## LICENÇA
 
